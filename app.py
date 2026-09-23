@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY", "change-this-secret-key")
 DB_PATH = os.path.join(os.path.dirname(__file__), "student_management.db")
 ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "admin")
-ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "change-me")
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "admin123")
 
 COURSES = ["Python", "Java", "AI&ML", "Data Science", "Full Stack"]
 
