@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{% block title %}Student Management{% endblock %}</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body>
+<div class="layout"><aside class="sidebar"><div class="brand">Student<span>Desk</span></div><nav class="nav">
+<a href="{{ url_for('dashboard') }}" class="{{ 'active' if request.endpoint=='dashboard' else '' }}">▦ &nbsp; Dashboard</a>
+<a href="{{ url_for('students') }}" class="{{ 'active' if request.endpoint in ['students','add_student','edit_student'] else '' }}">♙ &nbsp; Students</a>
+<a href="{{ url_for('add_student') }}">＋ &nbsp; Register Student</a>
+<a href="{{ url_for('attendance_report') }}" class="{{ 'active' if request.endpoint=='attendance_report' else '' }}">✓ &nbsp; Attendance</a>
+<a href="{{ url_for('logout') }}">↪ &nbsp; Logout</a></nav></aside><main>
+<div class="topbar"><div><div class="muted">STUDENT MANAGEMENT SYSTEM</div><h1>{% block heading %}Dashboard{% endblock %}</h1></div><div class="muted">Admin Workspace</div></div>
+{% with messages=get_flashed_messages(with_categories=true) %}{% for category,message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}{% endwith %}
+{% block content %}{% endblock %}
+</main></div></body></html>
